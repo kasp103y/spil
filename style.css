@@ -1,0 +1,578 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #bbefef;
+}
+
+h1 {
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    flex-flow: wrap;
+}
+
+li {
+    margin: 0 1rem 0 1rem;
+    list-style: none;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/**********************************ASSETLISTE*******************************************************/
+
+
+
+
+/****************************************SPILLET****************************************************/
+#screen {
+
+    width: 100vw;
+    height: 56.25vw;
+    background-color: aqua;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#game {
+
+    background-color: pink;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#start {
+
+    background-color: green;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#game_over {
+    background-color: brown;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#level_complete {
+    background-color: blueviolet;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#game_background {
+    background-image: url(assetsv2/baggrund_himmel.svg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+
+}
+
+#game_elements {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#sol_container {
+    position: absolute;
+    top: 0vw;
+    left: 75.5vw;
+}
+
+#sol_sprite {
+    width: 30vw;
+    height: 26.8vw;
+    background-image: url(assetsv2/fig_sol.svg);
+    background-size: cover;
+}
+
+#blomst_container {
+    position: absolute;
+    top: 28vw;
+    left: 64.5vw;
+}
+
+#blomst_sprite {
+    width: 22vw;
+    height: 21vw;
+    background-image: url(assetsv2/fig_start.svg);
+    background-size: cover;
+}
+
+#vand_container {
+    position: absolute;
+    top: 0vw;
+    left: 50vw;
+}
+
+#vand_sprite {
+    width: 1.5vw;
+    height: 2vw;
+    background-image: url(assetsv2/vand_drop.svg);
+    background-size: cover;
+}
+
+#vand_container2 {
+    position: absolute;
+    top: 0vw;
+    left: 33vw;
+}
+
+#vand_sprite2 {
+    width: 1.5vw;
+    height: 2vw;
+    background-image: url(assetsv2/vand_drop.svg);
+    background-size: cover;
+}
+
+
+#syre_container {
+    position: absolute;
+    top: 0vw;
+    left: 70vw;
+}
+
+#syre_sprite {
+    width: 1.5vw;
+    height: 2vw;
+    background-image: url(assetsv2/syre_regn.svg);
+    background-size: cover;
+}
+
+#syre_container2 {
+    position: absolute;
+    top: 0vw;
+    left: 20vw;
+}
+
+#syre_sprite2 {
+    width: 1.5vw;
+    height: 2vw;
+    background-image: url(assetsv2/syre_regn.svg);
+    background-size: cover;
+}
+
+
+#bombe_container {
+    position: absolute;
+    top: 0vw;
+    left: 37vw;
+}
+
+#bombe_sprite {
+    width: 3vw;
+    height: 3vw;
+    background-image: url(assetsv2/bombe.svg);
+    background-size: cover;
+}
+
+#bombe_container2 {
+    position: absolute;
+    top: 0vw;
+    left: 50vw;
+}
+
+#bombe_sprite2 {
+    width: 3vw;
+    height: 3vw;
+    background-image: url(assetsv2/bombe.svg);
+    background-size: cover;
+}
+
+#ild_container {
+    position: absolute;
+    top: 0vw;
+    left: 58vw;
+}
+
+
+#ild_sprite {
+    width: 2vw;
+    height: 3vw;
+    background-image: url(assetsv2/ild.svg);
+    background-size: cover;
+}
+
+#ild_container2 {
+    position: absolute;
+    top: 0vw;
+    left: 10vw;
+}
+
+
+#ild_sprite2 {
+    width: 2vw;
+    height: 3vw;
+    background-image: url(assetsv2/ild.svg);
+    background-size: cover;
+}
+
+
+#game_foreground1 {
+    background-image: url(assetsv2/forgrund_spil.svg);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+}
+
+
+#game_foreground2 {
+    background-image: url(assetsv2/grene_forgrund.svg);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+}
+
+#game_middleground {
+    background-image: url(assetsv2/spil_mellemgrund.svg);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+}
+
+#game_ui {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#score_board_container {
+    position: absolute;
+    top: 48.8vw;
+    left: 15vw;
+
+}
+
+#score_board_sprite {
+    width: 13vw;
+    height: 6.1vw;
+    background-image: url(assetsv2/ui_point_tom.svg);
+    background-size: cover;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold color: white;
+}
+
+#energy_board_container {
+    position: absolute;
+    top: 47vw;
+    left: 2vw;
+
+}
+
+#energy_board_sprite {
+    width: 13vw;
+    height: 8vw;
+    background-image: url(assetsv2/ui_liv_tre.svg);
+    background-size: cover;
+}
+
+#time_board_container {
+    position: absolute;
+    top: 47vw;
+    left: 86vw;
+
+}
+
+#time_board_sprite {
+    width: 13vw;
+    height: 8vw;
+    background-image: url(assetsv2/time_table.svg);
+    background-size: cover;
+}
+
+#options_container {
+    position: absolute;
+    top: 1vw;
+    left: 1vw;
+
+}
+
+#options_sprite {
+    width: 4vw;
+    height: 4vw;
+    background-image: url(assetsv2/ui_options.svg);
+    background-size: cover;
+}
+
+/**********************************ANIMATIONER******************************************************/
+
+#game_foreground2 {
+    animation-name: grene_kf;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+@keyframes grene_kf {
+    from {
+        transform: skewX(100%)
+    }
+
+    to {
+        transform: scaleX(101%)
+    }
+}
+
+#sol_sprite {
+    animation-name: sol_hover_kf;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+@keyframes sol_hover_kf {
+    from {
+        transform: translateY(1vw)
+    }
+
+    to {
+        transform: translateY(-1vw)
+    }
+}
+
+/**********************************************UI******************************************************/
+
+#energy_board_container {
+    animation-name: ui_hover_kf;
+    animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+#score_board_sprite {
+    animation-name: ui_hover_kf;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+
+#time_board_sprite {
+    animation-name: ui_hover_kf;
+    animation-duration: 0.7s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+
+@keyframes ui_hover_kf {
+    from {
+        transform: translateY(-0.2vw)
+    }
+
+    to {
+        transform: translateY(0vw)
+    }
+}
+
+
+
+#energy_board_sprite {
+    animation-name: health_change_kf;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+@keyframes health_change_kf {
+    from {
+        background-image: url(assetsv2/ui_liv_tre.svg)
+    }
+
+    25% {
+        background-image: url(assetsv2/ui_liv_tp.svg)
+    }
+
+    50% {
+        background-image: url(assetsv2/ui_liv_et.svg)
+    }
+
+    to {
+        background-image: url(assetsv2/ui_liv_nul.svg)
+    }
+
+}
+
+
+/****************************************Projektiler*****************************************************/
+
+#ild_container {
+    animation-name: ild_kf;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+
+}
+
+#ild_container2 {
+    animation-name: ild_kf;
+    animation-duration: 4.5s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes ild_kf {
+    from {
+        transform: translateY(-40vw)
+    }
+
+    to {
+        transform: translateY(50vw)
+    }
+}
+
+
+#vand_container {
+    animation-name: vand_kf;
+    animation-duration: 4.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+
+}
+
+#vand_container2 {
+    animation-name: vand_kf;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+}
+
+@keyframes vand_kf {
+    from {
+        transform: translateY(-40vw)
+    }
+
+    to {
+        transform: translateY(50vw)
+    }
+}
+
+#bombe_container {
+    animation-name: bombe_kf;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#bombe_container2 {
+    animation-name: bombe_kf;
+    animation-duration: 3s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes bombe_kf {
+    from {
+        transform: translateY(-40vw)
+    }
+
+    to {
+        transform: translateY(50vw)
+    }
+}
+
+#syre_container {
+    animation-name: syre_kf;
+    animation-duration: 4.3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+
+}
+
+#syre_container2 {
+    animation-name: syre_kf;
+    animation-duration: 4.7s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+
+}
+
+@keyframes syre_kf {
+    from {
+        transform: translateY(-40vw)
+    }
+
+    to {
+        transform: translateY(50vw)
+    }
+}
+
+#ild_container {
+    animation-name: ild_kf;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+
+}
+
+@keyframes ild_kf {
+    from {
+        transform: translateY(-40vw)
+    }
+
+    to {
+        transform: translateY(50vw)
+    }
+}
