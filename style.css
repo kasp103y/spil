@@ -5,6 +5,7 @@
 
 body {
     background-color: #bbefef;
+    margin: auto;
 }
 
 h1 {
@@ -32,10 +33,50 @@ a {
 
 /**********************************ASSETLISTE*******************************************************/
 
+
+img {
+    height: auto;
+    width: 100%
+}
+
+#figure {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 20px;
+}
+
+
 #ui {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: 20px;
 }
+
+#projektil {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 20px;
+}
+
+
+main {
+    max-width: 1500px;
+    margin: auto;
+
+}
+
+figure {
+    float: right;
+    width: 60%;
+    text-align: center;
+    font-style: italic;
+    font-size: smaller;
+    text-indent: 0;
+    border: 10px black solid;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
 
 
 /****************************************SPILLET****************************************************/
@@ -282,6 +323,7 @@ a {
     position: absolute;
     top: 0;
     left: 0;
+    pointer-events: none;
 }
 
 #score_board_container {
