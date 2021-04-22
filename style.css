@@ -77,6 +77,10 @@ figure {
     padding: 0.5em;
 }
 
+.baggrund {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
 
 /****************************************SPILLET****************************************************/
@@ -88,6 +92,7 @@ figure {
     position: relative;
     top: 0;
     left: 0;
+    overflow: hidden;
 }
 
 #game {
@@ -112,7 +117,7 @@ figure {
 }
 
 #game_over {
-    background-color: brown;
+    background-image: url(assetsv2/gameover_bag.svg);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -177,10 +182,12 @@ figure {
     background-size: cover;
 }
 
+/***************************************************************************************/
+
 #vand_container {
     position: absolute;
-    top: 0vw;
-    left: 50vw;
+    top: -10vw;
+    /*left: 50vw;*/
 }
 
 #vand_sprite {
@@ -192,7 +199,7 @@ figure {
 
 #vand_container2 {
     position: absolute;
-    top: 0vw;
+    top: -10vw;
     left: 33vw;
 }
 
@@ -206,7 +213,7 @@ figure {
 
 #syre_container {
     position: absolute;
-    top: 0vw;
+    top: -10vw;
     left: 70vw;
 }
 
@@ -219,7 +226,7 @@ figure {
 
 #syre_container2 {
     position: absolute;
-    top: 0vw;
+    top: -10vw;
     left: 20vw;
 }
 
@@ -233,7 +240,7 @@ figure {
 
 #bombe_container {
     position: absolute;
-    top: 0vw;
+    top: -10vw;
     left: 37vw;
 }
 
@@ -246,7 +253,7 @@ figure {
 
 #bombe_container2 {
     position: absolute;
-    top: 0vw;
+    top: -10vw;
     left: 50vw;
 }
 
@@ -259,8 +266,8 @@ figure {
 
 #ild_container {
     position: absolute;
-    top: 0vw;
-    left: 58vw;
+    top: -10vw;
+    /*left: 58vw;*/
 }
 
 
@@ -273,7 +280,7 @@ figure {
 
 #ild_container2 {
     position: absolute;
-    top: 0vw;
+    top: -10vw;
     left: 10vw;
 }
 
@@ -334,13 +341,16 @@ figure {
 }
 
 #score_board_sprite {
+    position: absolute;
     width: 13vw;
     height: 6.1vw;
     background-image: url(assetsv2/ui_point_tom.svg);
     background-size: cover;
     text-align: center;
     font-family: sans-serif;
-    font-weight: bold color: white;
+    font-size: 3rem;
+    color: aliceblue;
+
 }
 
 #energy_board_container {
@@ -350,12 +360,37 @@ figure {
 
 }
 
+
 #energy_board_sprite {
     width: 13vw;
     height: 8vw;
-    background-image: url(assetsv2/ui_liv_tre.svg);
+    background-image: url(assetsv2/liv_div.svg);
     background-size: cover;
+
 }
+
+#liv1,
+#liv2,
+#liv3 {
+    width: 3vw;
+    height: 3.83vw;
+
+
+}
+
+#liv {
+
+    display: flex;
+    position: absolute;
+    top: 2.6vw;
+    left: 3vw;
+}
+
+.hide {
+    opacity: 0;
+}
+
+
 
 #time_board_container {
     position: absolute;
@@ -396,12 +431,9 @@ figure {
 }
 
 @keyframes grene_kf {
-    from {
-        transform: skewX(100%)
-    }
 
     to {
-        transform: scaleX(101%)
+        transform: scaleX(1.01)
     }
 }
 
@@ -463,7 +495,7 @@ figure {
 
 
 
-#energy_board_sprite {
+/*#energy_board_sprite {
     animation-name: health_change_kf;
     animation-duration: 30s;
     animation-iteration-count: infinite;
@@ -488,11 +520,106 @@ figure {
         background-image: url(assetsv2/ui_liv_nul.svg)
     }
 
-}
+} */
 
 
 /****************************************Projektiler*****************************************************/
 
+.pos1 {
+
+    left: 65vw;
+}
+
+.pos2 {
+
+    left: 30vw;
+}
+
+.pos3 {
+
+    left: 45vw;
+}
+
+.pos4 {
+
+    left: 59vw;
+}
+
+.fald {
+    animation-name: fald_kf;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes fald_kf {
+    from {
+        transform: translateY(-40vw)
+    }
+
+    to {
+        transform: translateY(75vw)
+    }
+}
+
+.frys {
+    animation-play-state: paused;
+}
+
+.forsvind {
+    animation-name: forsvind_kf;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes forsvind_kf {
+    100% {
+        opacity: 0
+    }
+}
+
+.splat_vand {
+    animation-name: splat_vand_kf;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+
+@keyframes splat_vand_kf {
+
+    50% {
+        background-image: url(assetsv2/vand_splat.svg);
+        width: 2vw;
+        height: 2.3vw;
+        transform: scale(3);
+
+    }
+
+    100% {
+        background-image: url(assetsv2/vand_splat.svg);
+        width: 2vw;
+        height: 2.3vw;
+        transform: scale(2) translateY(2vw);
+        opacity: 0;
+    }
+}
+
+.skaler {
+    animation-name: skaler_kf;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+
+@keyframes skaler_kf {
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/*
 #ild_container {
     animation-name: ild_kf;
     animation-duration: 5s;
@@ -601,23 +728,4 @@ figure {
     to {
         transform: translateY(50vw)
     }
-}
-
-#ild_container {
-    animation-name: ild_kf;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-
-
-}
-
-@keyframes ild_kf {
-    from {
-        transform: translateY(-40vw)
-    }
-
-    to {
-        transform: translateY(50vw)
-    }
-}
+} */
