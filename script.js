@@ -1,5 +1,6 @@
 let points;
 let liv;
+let randomPos
 
 window.addEventListener("load", sidenVises);
 
@@ -44,7 +45,13 @@ function vandReset() {
     document.querySelector("#vand_sprite").classList = "";
     document.querySelector("#vand_container").removeEventListener("animationend", vandReset);
     document.querySelector("#vand_container").offsetHeight;
-    document.querySelector("#vand_container").classList.add("pos3", "fald");
+
+    //ny pos til vand
+    randomPos = Math.floor(Math.random() * 8) + 1;
+    console.log(randomPos);
+
+
+    document.querySelector("#vand_container").classList.add("pos" + randomPos, "fald");
     document.querySelector("#vand_container").addEventListener("mousedown", clickVandHandler);
 
 
@@ -73,7 +80,9 @@ function ildReset() {
     document.querySelector("#ild_sprite").classList = "";
     document.querySelector("#ild_container").removeEventListener("animationend", ildReset);
     document.querySelector("#ild_container").offsetHeight;
-    document.querySelector("#ild_container").classList.add("pos4", "fald");
+    randomPos = Math.floor(Math.random() * 8) + 1;
+    console.log(randomPos);
+    document.querySelector("#ild_container").classList.add("pos" + randomPos, "fald");
     document.querySelector("#ild_container").addEventListener("mousedown", clickIldHandler);
 
 
@@ -83,7 +92,7 @@ function ildForsvind() {
     console.log("ildForsvind");
 }
 
-
+//mist liv på vand rammer bund
 function vandForsvind() {
     console.log("vandForsvind");
 }

@@ -69,12 +69,14 @@ figure {
     float: right;
     width: 60%;
     text-align: center;
-    font-style: italic;
     font-size: smaller;
     text-indent: 0;
-    border: 10px black solid;
     margin: 0.5em;
     padding: 0.5em;
+}
+
+figcaption {
+    border: 3px white;
 }
 
 .baggrund {
@@ -420,6 +422,10 @@ figure {
     background-size: cover;
 }
 
+#options_container:hover {
+    box-shadow: 0 0 10px yellow;
+}
+
 /**********************************ANIMATIONER******************************************************/
 
 #game_foreground2 {
@@ -543,6 +549,26 @@ figure {
 .pos4 {
 
     left: 59vw;
+}
+
+.pos5 {
+
+    left: 60vw;
+}
+
+.pos6 {
+
+    left: 34vw;
+}
+
+.pos7 {
+
+    left: 42vw;
+}
+
+.pos8 {
+
+    left: 74vw;
 }
 
 .fald {
