@@ -109,13 +109,26 @@ figcaption {
 
 #start {
 
-    background-color: green;
+    background-image: url(assetsv2/fuldstartscreen.svg);
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    display: none;
+    /*display: none;*/
+}
+
+#start_knap_container {
+    position: absolute;
+    top: 19vw;
+    left: 47.5vw;
+}
+
+#start_knap_sprite {
+    background-image: url(assetsv2/play_knap.svg);
+    background-size: cover;
+    width: 12vw;
+    height: 6.5vw;
 }
 
 #game_over {
@@ -212,6 +225,19 @@ figcaption {
     background-size: cover;
 }
 
+#vand_container3 {
+    position: absolute;
+    top: -10vw;
+    left: 33vw;
+}
+
+#vand_sprite3 {
+    width: 1.5vw;
+    height: 2vw;
+    background-image: url(assetsv2/vand_drop.svg);
+    background-size: cover;
+}
+
 
 #syre_container {
     position: absolute;
@@ -288,6 +314,20 @@ figcaption {
 
 
 #ild_sprite2 {
+    width: 2vw;
+    height: 3vw;
+    background-image: url(assetsv2/ild.svg);
+    background-size: cover;
+}
+
+#ild_container3 {
+    position: absolute;
+    top: -10vw;
+    left: 10vw;
+}
+
+
+#ild_sprite3 {
     width: 2vw;
     height: 3vw;
     background-image: url(assetsv2/ild.svg);
@@ -388,24 +428,22 @@ figcaption {
     left: 3vw;
 }
 
-.hide {
-    opacity: 0;
-}
-
-
 
 #time_board_container {
     position: absolute;
-    top: 47vw;
-    left: 86vw;
+    width: 3vw;
+    height: 20vw;
+    border: 5px solid pink;
+    top: 10vw;
 
 }
 
 #time_board_sprite {
-    width: 13vw;
-    height: 8vw;
-    background-image: url(assetsv2/time_table.svg);
-    background-size: cover;
+    width: 3vw;
+    height: 20vw;
+    background-color: forestgreen;
+    transform-origin: bottom center;
+
 }
 
 #options_container {
@@ -480,13 +518,13 @@ figcaption {
 }
 
 
-#time_board_sprite {
+/*#time_board_sprite {
     animation-name: ui_hover_kf;
     animation-duration: 0.7s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-timing-function: ease-in-out;
-}
+}*/
 
 
 @keyframes ui_hover_kf {
@@ -498,6 +536,8 @@ figcaption {
         transform: translateY(0vw)
     }
 }
+
+
 
 
 
@@ -530,6 +570,33 @@ figcaption {
 
 
 /****************************************Projektiler*****************************************************/
+.time {
+    animation-name: time_kf;
+    animation-duration: 30s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes time_kf {
+    0% {
+        transform: scaleY(1);
+        background-color: forestgreen;
+    }
+
+    100% {
+        transform: scaleY(0);
+        background-color: firebrick;
+    }
+}
+
+
+.hidden {
+    display: none;
+}
+
+.hide {
+    opacity: 0;
+}
 
 .pos1 {
 
@@ -569,6 +636,49 @@ figcaption {
 .pos8 {
 
     left: 74vw;
+}
+
+.speed1 {
+    animation-duration: 5s;
+}
+
+.speed2 {
+    animation-duration: 4s;
+}
+
+.speed3 {
+    animation-duration: 6s;
+}
+
+.speed4 {
+    animation-duration: 3.5s;
+}
+
+.delay1 {
+    animation-delay: 1s;
+}
+
+.delay2 {
+    animation-delay: .5s;
+}
+
+.delay3 {
+    animation-delay: 0s;
+}
+
+.pulse {
+    animation-name: pulse_kf;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(1, -0.42, .15, 1.47)
+}
+
+@keyframes pulse_kf {
+
+    to {
+        transform: scale(1.05);
+    }
 }
 
 .fald {
@@ -632,7 +742,7 @@ figcaption {
 
 .skaler {
     animation-name: skaler_kf;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
 }
 
