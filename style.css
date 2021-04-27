@@ -429,7 +429,7 @@ figcaption {
 }
 
 
-#time_board_container {
+/*#time_board_container {
     position: absolute;
     width: 3vw;
     height: 20vw;
@@ -443,6 +443,29 @@ figcaption {
     height: 20vw;
     background-color: forestgreen;
     transform-origin: bottom center;
+
+}*/
+
+#time_board_container {
+    position: absolute;
+    top: 9vw;
+    left: 1vw;
+    background-image: url(assetsv2/clock.svg);
+    background-size: cover;
+    width: 15vw;
+    height: 11vw;
+
+}
+
+#time_board_sprite {
+    position: absolute;
+    width: 0.1vw;
+    height: 3.5vw;
+    top: 2.2vw;
+    left: 7.8vw;
+    border: 1px solid black;
+    background-color: black;
+    transform-origin: bottom;
 
 }
 
@@ -518,13 +541,13 @@ figcaption {
 }
 
 
-/*#time_board_sprite {
+#time_board_container {
     animation-name: ui_hover_kf;
     animation-duration: 0.7s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-timing-function: ease-in-out;
-}*/
+}
 
 
 @keyframes ui_hover_kf {
@@ -570,7 +593,7 @@ figcaption {
 
 
 /****************************************Projektiler*****************************************************/
-.time {
+/*.time {
     animation-name: time_kf;
     animation-duration: 30s;
     animation-fill-mode: forwards;
@@ -586,6 +609,22 @@ figcaption {
     100% {
         transform: scaleY(0);
         background-color: firebrick;
+    }
+}
+*/
+
+.time {
+    animation-name: time_kf;
+    animation-duration: 30s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes time_kf {
+
+    100% {
+        transform: rotate(360deg);
+
     }
 }
 
@@ -643,11 +682,11 @@ figcaption {
 }
 
 .speed2 {
-    animation-duration: 4s;
+    animation-duration: 3s;
 }
 
 .speed3 {
-    animation-duration: 6s;
+    animation-duration: 2.7s;
 }
 
 .speed4 {
@@ -683,14 +722,14 @@ figcaption {
 
 .fald {
     animation-name: fald_kf;
-    animation-duration: 6s;
+    animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
 
 @keyframes fald_kf {
     from {
-        transform: translateY(-40vw)
+        transform: translateY(0vw)
     }
 
     to {
