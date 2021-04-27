@@ -4,10 +4,13 @@ let randomPos;
 let speed;
 let delay;
 const vandcontainer1 = document.querySelector("#vand_container")
-const vandcontainer2 = document.querySelector("#vand_container2")
 const ildcontainer = document.querySelector("#ild_container")
 const syrecontainer = document.querySelector("#syre_container")
 const bombecontainer = document.querySelector("#bombe_container")
+const vandcontainer2 = document.querySelector("#vand_container2")
+const ildcontainer2 = document.querySelector("#ild_container2")
+const syrecontainer2 = document.querySelector("#syre_container2")
+const bombecontainer2 = document.querySelector("#bombe_container2")
 const time = document.querySelector("#time_board_sprite")
 
 window.addEventListener("load", sidenVises);
@@ -43,6 +46,9 @@ function startGame() {
     ildcontainer.classList.add("pos3", "delay3", "fald", "speed3");
     bombecontainer.classList.add("pos4", "delay2", "fald", "speed4");
     syrecontainer.classList.add("pos5", "delay4", "fald", "speed5");
+    ildcontainer2.classList.add("pos3", "delay3", "fald", "speed3");
+    bombecontainer2.classList.add("pos4", "delay2", "fald", "speed4");
+    syrecontainer2.classList.add("pos5", "delay4", "fald", "speed5");
 
     //Lyt efter klik på object
     vandcontainer1.addEventListener("mousedown", clickVandHandler);
@@ -50,13 +56,19 @@ function startGame() {
     ildcontainer.addEventListener("mousedown", clickIldHandler);
     bombecontainer.addEventListener("mousedown", clickBombeHandler);
     syrecontainer.addEventListener("mousedown", clickSyreHandler);
+    ildcontainer2.addEventListener("mousedown", clickIldHandler);
+    bombecontainer2.addEventListener("mousedown", clickBombeHandler);
+    syrecontainer2.addEventListener("mousedown", clickSyreHandler);
 
     //Lyt efter færdig animation
     ildcontainer.addEventListener("animationiteration", ildReset);
+    ildcontainer2.addEventListener("animationiteration", ildReset);
     vandcontainer1.addEventListener("animationiteration", vandReset);
     vandcontainer2.addEventListener("animationiteration", vandReset);
     bombecontainer.addEventListener("animationiteration", bombeReset);
     syrecontainer.addEventListener("animationiteration", syreReset);
+    bombecontainer2.addEventListener("animationiteration", bombeReset);
+    syrecontainer2.addEventListener("animationiteration", syreReset);
 
     //Stopper spil hvis tid slut
     time.addEventListener("animationend", stopSpillet);
@@ -235,28 +247,40 @@ function stopSpillet() {
     console.log("stopSpillet");
     ildcontainer.classList = "";
     ildcontainer.firstElementChild.classList = "";
+    ildcontainer2.classList = "";
+    ildcontainer2.firstElementChild.classList = "";
     vandcontainer1.classList = "";
     vandcontainer1.firstElementChild.classList = "";
     vandcontainer2.classList = "";
     vandcontainer2.firstElementChild.classList = "";
     bombecontainer.classList = "";
     bombecontainer.firstElementChild.classList = "";
+    bombecontainer2.classList = "";
+    bombecontainer2.firstElementChild.classList = "";
     syrecontainer.classList = "";
-    document.querySelector("#syre_sprite").classList = "";
+    syrecontainer.firstElementChild.classList = "";
+    syrecontainer2.classList = "";
+    syrecontainer2.firstElementChild.classList = "";
     document.querySelector("#time_board_sprite").classList = "";
     //Remove eventlistener
-    vandcontainer.removeEventListener("mousedown", clickVandHandler);
+    vandcontainer1.removeEventListener("mousedown", clickVandHandler);
     vandcontainer2.removeEventListener("mousedown", clickVandHandler);
     ildcontainer.removeEventListener("mousedown", clickIldHandler);
     bombecontainer.removeEventListener("mousedown", clickBombeHandler);
     syrecontainer.removeEventListener("mousedown", clickSyreHandler);
+    ildcontainer2.removeEventListener("mousedown", clickIldHandler);
+    bombecontainer2.removeEventListener("mousedown", clickBombeHandler);
+    syrecontainer2.removeEventListener("mousedown", clickSyreHandler);
 
     //Lyt efter færdig animation
     ildcontainer.removeEventListener("animationiteration", ildReset);
-    vandcontainer.removeEventListener("animationiteration", vandReset);
+    ildcontainer2.removeEventListener("animationiteration", ildReset);
+    vandcontainer1.removeEventListener("animationiteration", vandReset);
     vandcontainer2.removeEventListener("animationiteration", vandReset);
     bombecontainer.removeEventListener("animationiteration", bombeReset);
     syrecontainer.removeEventListener("animationiteration", syreReset);
+    bombecontainer2.removeEventListener("animationiteration", bombeReset);
+    syrecontainer2.removeEventListener("animationiteration", syreReset);
 
     //Stopper spil hvis tid slut
     time.removeEventListener("animationend", stopSpillet);

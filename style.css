@@ -225,19 +225,6 @@ figcaption {
     background-size: cover;
 }
 
-#vand_container3 {
-    position: absolute;
-    top: -10vw;
-    left: 33vw;
-}
-
-#vand_sprite3 {
-    width: 1.5vw;
-    height: 2vw;
-    background-image: url(assetsv2/vand_drop.svg);
-    background-size: cover;
-}
-
 
 #syre_container {
     position: absolute;
@@ -320,19 +307,6 @@ figcaption {
     background-size: cover;
 }
 
-#ild_container3 {
-    position: absolute;
-    top: -10vw;
-    left: 10vw;
-}
-
-
-#ild_sprite3 {
-    width: 2vw;
-    height: 3vw;
-    background-image: url(assetsv2/ild.svg);
-    background-size: cover;
-}
 
 
 #game_foreground1 {
