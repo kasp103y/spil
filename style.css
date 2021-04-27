@@ -677,6 +677,13 @@ figcaption {
     left: 74vw;
 }
 
+.fald {
+    animation-name: fald_kf;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
 .speed1 {
     animation-duration: 5s;
 }
@@ -686,11 +693,15 @@ figcaption {
 }
 
 .speed3 {
-    animation-duration: 2.7s;
+    animation-duration: 3.3s;
 }
 
 .speed4 {
     animation-duration: 3.5s;
+}
+
+.speed5 {
+    animation-duration: 3.8s;
 }
 
 .delay1 {
@@ -720,12 +731,7 @@ figcaption {
     }
 }
 
-.fald {
-    animation-name: fald_kf;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
+
 
 @keyframes fald_kf {
     from {

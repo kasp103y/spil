@@ -3,6 +3,12 @@ let liv;
 let randomPos;
 let speed;
 let delay;
+const vandcontainer1 = document.querySelector("#vand_container")
+const vandcontainer2 = document.querySelector("#vand_container2")
+const ildcontainer = document.querySelector("#ild_container")
+const syrecontainer = document.querySelector("#syre_container")
+const bombecontainer = document.querySelector("#bombe_container")
+const time = document.querySelector("#time_board_sprite")
 
 window.addEventListener("load", sidenVises);
 
@@ -25,111 +31,78 @@ function startGame() {
 
     liv = 3;
 
-    speed = 3;
+    speed = 0;
 
     delay = 1;
     //Starter tid
-    document.querySelector("#time_board_sprite").classList.add("time");
+    time.classList.add("time");
 
     //Position til container
-    document.querySelector("#vand_container").classList.add("pos1", "fald");
-    document.querySelector("#vand_container2").classList.add("pos2", "delay2", "fald");
-    document.querySelector("#ild_container").classList.add("pos3", "delay3", "fald");
-    document.querySelector("#bombe_container").classList.add("pos4", "delay2", "fald");
-    document.querySelector("#syre_container").classList.add("pos5", "delay4", "fald");
+    vandcontainer1.classList.add("pos1", "fald", "speed1");
+    vandcontainer2.classList.add("pos2", "delay2", "fald", "speed2");
+    ildcontainer.classList.add("pos3", "delay3", "fald", "speed3");
+    bombecontainer.classList.add("pos4", "delay2", "fald", "speed4");
+    syrecontainer.classList.add("pos5", "delay4", "fald", "speed5");
 
     //Lyt efter klik på object
-    document.querySelector("#vand_container").addEventListener("mousedown", clickVandHandler);
-    document.querySelector("#vand_container2").addEventListener("mousedown", clickVand2Handler);
-    document.querySelector("#ild_container").addEventListener("mousedown", clickIldHandler);
-    document.querySelector("#bombe_container").addEventListener("mousedown", clickBombeHandler);
-    document.querySelector("#syre_container").addEventListener("mousedown", clickSyreHandler);
+    vandcontainer1.addEventListener("mousedown", clickVandHandler);
+    vandcontainer2.addEventListener("mousedown", clickVandHandler);
+    ildcontainer.addEventListener("mousedown", clickIldHandler);
+    bombecontainer.addEventListener("mousedown", clickBombeHandler);
+    syrecontainer.addEventListener("mousedown", clickSyreHandler);
 
     //Lyt efter færdig animation
-    document.querySelector("#ild_container").addEventListener("animationiteration", ildReset);
-    document.querySelector("#vand_container").addEventListener("animationiteration", vandReset);
-    document.querySelector("#vand_container2").addEventListener("animationiteration", vandReset2);
-    document.querySelector("#bombe_container").addEventListener("animationiteration", bombeReset);
-    document.querySelector("#syre_container").addEventListener("animationiteration", syreReset);
+    ildcontainer.addEventListener("animationiteration", ildReset);
+    vandcontainer1.addEventListener("animationiteration", vandReset);
+    vandcontainer2.addEventListener("animationiteration", vandReset);
+    bombecontainer.addEventListener("animationiteration", bombeReset);
+    syrecontainer.addEventListener("animationiteration", syreReset);
 
     //Stopper spil hvis tid slut
-    document.querySelector("#time_board_sprite").addEventListener("animationend", stopSpillet);
+    time.addEventListener("animationend", stopSpillet);
 
 }
 
 function clickVandHandler() {
     console.log("clickVandhandler");
 
-    document.querySelector("#vand_container").removeEventListener("mousedown", clickVandHandler);
-    document.querySelector("#vand_sprite").classList.add("splat_vand");
+    this.removeEventListener("mousedown", clickVandHandler);
+    this.firstElementChild.classList.add("splat_vand");
     points++;
     document.querySelector("#score_board_sprite").innerHTML = points;
-    document.querySelector("#vand_container").classList.add("frys");
-    document.querySelector("#vand_container").addEventListener("animationend", vandReset);
+    this.classList.add("frys");
+    this.addEventListener("animationend", vandReset);
 
 }
 
 function vandReset() {
     console.log("vandReset");
-    document.querySelector("#vand_container").classList = "";
-    document.querySelector("#vand_sprite").classList = "";
-    document.querySelector("#vand_container").removeEventListener("animationend", vandReset);
-    document.querySelector("#vand_container").offsetHeight;
+    this.classList = "";
+    this.firstElementChild.classList = "";
+    this.removeEventListener("animationend", vandReset);
+    this.offsetHeight;
 
     //ny pos til vand
     randomPos = Math.floor(Math.random() * 8) + 1;
     console.log(randomPos);
 
 
-    document.querySelector("#vand_container").classList.add("pos" + randomPos, "fald");
+    this.classList.add("pos" + randomPos, "fald");
 
     speed = Math.floor(Math.random() * 4) + 1;
     console.log(speed);
-    document.querySelector("#vand_container").classList.add("speed" + speed);
-    document.querySelector("#vand_container").addEventListener("mousedown", clickVandHandler);
+    this.classList.add("speed" + speed);
+    this.addEventListener("mousedown", clickVandHandler);
 
 
 }
 
-function clickVand2Handler() {
-    console.log("clickVandhandler");
-
-    document.querySelector("#vand_container2").removeEventListener("mousedown", clickVandHandler);
-    document.querySelector("#vand_sprite2").classList.add("splat_vand");
-    points++;
-    document.querySelector("#score_board_sprite").innerHTML = points;
-    document.querySelector("#vand_container2").classList.add("frys");
-    document.querySelector("#vand_container2").addEventListener("animationend", vandReset2);
-
-}
-
-function vandReset2() {
-    console.log("vandReset");
-    document.querySelector("#vand_container2").classList = "";
-    document.querySelector("#vand_sprite2").classList = "";
-    document.querySelector("#vand_container2").removeEventListener("animationend", vandReset2);
-    document.querySelector("#vand_container2").offsetHeight;
-
-    //Ny pos til vand
-    randomPos = Math.floor(Math.random() * 8) + 1;
-    console.log(randomPos);
-
-
-    document.querySelector("#vand_container2").classList.add("pos" + randomPos, "fald");
-    //Random speed
-    speed = Math.floor(Math.random() * 4) + 1;
-    console.log(speed);
-    document.querySelector("#vand_container2").classList.add("speed" + speed);
-    document.querySelector("#vand_container2").addEventListener("mousedown", clickVandHandler);
-
-
-}
 
 function clickIldHandler() {
     console.log("clickIldhandler");
 
-    document.querySelector("#ild_container").removeEventListener("mousedown", clickIldHandler);
-    document.querySelector("#ild_sprite").classList.add("skaler");
+    this.removeEventListener("mousedown", clickIldHandler);
+    this.firstElementChild.classList.add("skaler");
     console.log("liv =" + liv)
 
     document.querySelector("#liv" + liv).classList.add("hide");
@@ -138,8 +111,8 @@ function clickIldHandler() {
 
     console.log("liv er nu =" + liv)
 
-    document.querySelector("#ild_container").classList.add("frys");
-    document.querySelector("#ild_container").addEventListener("animationend", ildReset);
+    this.classList.add("frys");
+    this.addEventListener("animationend", ildReset);
 
     if (liv <= 0) {
         console.log("liv <= 0");
@@ -149,19 +122,19 @@ function clickIldHandler() {
 
 function ildReset() {
     console.log("ildReset");
-    document.querySelector("#ild_container").classList = "";
-    document.querySelector("#ild_sprite").classList = "";
-    document.querySelector("#ild_container").removeEventListener("animationend", ildReset);
-    document.querySelector("#ild_container").offsetHeight;
+    this.classList = "";
+    this.firstElementChild.classList = "";
+    this.removeEventListener("animationend", ildReset);
+    this.offsetHeight;
     //Ny pos til ild
     randomPos = Math.floor(Math.random() * 8) + 1;
     console.log(randomPos);
-    document.querySelector("#ild_container").classList.add("pos" + randomPos, "fald");
+    this.classList.add("pos" + randomPos, "fald");
     //Random speed
     speed = Math.floor(Math.random() * 4) + 1;
     console.log(speed);
-    document.querySelector("#ild_container").classList.add("speed" + speed);
-    document.querySelector("#ild_container").addEventListener("mousedown", clickIldHandler);
+    this.classList.add("speed" + speed);
+    this.addEventListener("mousedown", clickIldHandler);
 
 
 }
@@ -169,8 +142,8 @@ function ildReset() {
 function clickBombeHandler() {
     console.log("clickBombehandler");
 
-    document.querySelector("#bombe_container").removeEventListener("mousedown", clickBombeHandler);
-    document.querySelector("#bombe_sprite").classList.add("skaler");
+    this.removeEventListener("mousedown", clickBombeHandler);
+    this.firstElementChild.classList.add("skaler");
     console.log("liv =" + liv)
 
     document.querySelector("#liv" + liv).classList.add("hide");
@@ -179,8 +152,8 @@ function clickBombeHandler() {
 
     console.log("liv er nu =" + liv)
 
-    document.querySelector("#bombe_container").classList.add("frys");
-    document.querySelector("#bombe_container").addEventListener("animationend", bombeReset);
+    this.classList.add("frys");
+    this.addEventListener("animationend", bombeReset);
 
     if (liv <= 0) {
         console.log("liv <= 0");
@@ -190,19 +163,19 @@ function clickBombeHandler() {
 
 function bombeReset() {
     console.log("bombeReset");
-    document.querySelector("#bombe_container").classList = "";
-    document.querySelector("#bombe_sprite").classList = "";
-    document.querySelector("#bombe_container").removeEventListener("animationend", ildReset);
-    document.querySelector("#bombe_container").offsetHeight;
+    this.classList = "";
+    this.firstElementChild.classList = "";
+    this.removeEventListener("animationend", ildReset);
+    this.offsetHeight;
     //Ny pos til ild
     randomPos = Math.floor(Math.random() * 8) + 1;
     console.log(randomPos);
-    document.querySelector("#bombe_container").classList.add("pos" + randomPos, "fald");
+    this.classList.add("pos" + randomPos, "fald");
     //Random speed
     speed = Math.floor(Math.random() * 4) + 1;
     console.log(speed);
-    document.querySelector("#bombe_container").classList.add("speed" + speed);
-    document.querySelector("#bombe_container").addEventListener("mousedown", clickBombeHandler);
+    this.classList.add("speed" + speed);
+    this.addEventListener("mousedown", clickBombeHandler);
 
 
 }
@@ -210,33 +183,33 @@ function bombeReset() {
 function clickSyreHandler() {
     console.log("clickSyrehandler");
 
-    document.querySelector("#syre_container").removeEventListener("mousedown", clickSyreHandler);
-    document.querySelector("#syre_sprite").classList.add("splat_vand");
+    this.removeEventListener("mousedown", clickSyreHandler);
+    this.firstElementChild.classList.add("splat_vand");
     points--;
     document.querySelector("#score_board_sprite").innerHTML = points;
-    document.querySelector("#syre_container").classList.add("frys");
-    document.querySelector("#syre_container").addEventListener("animationend", syreReset);
+    this.classList.add("frys");
+    this.addEventListener("animationend", syreReset);
 
 }
 
 function syreReset() {
     console.log("syreReset");
-    document.querySelector("#syre_container").classList = "";
-    document.querySelector("#syre_sprite").classList = "";
-    document.querySelector("#syre_container").removeEventListener("animationend", syreReset);
-    document.querySelector("#syre_container").offsetHeight;
+    this.classList = "";
+    this.firstElementChild.classList = "";
+    this.removeEventListener("animationend", syreReset);
+    this.offsetHeight;
 
     //ny pos til vand
     randomPos = Math.floor(Math.random() * 8) + 1;
     console.log(randomPos);
 
 
-    document.querySelector("#syre_container").classList.add("pos" + randomPos, "fald");
+    this.classList.add("pos" + randomPos, "fald");
 
     speed = Math.floor(Math.random() * 4) + 1;
     console.log(speed);
-    document.querySelector("#syre_container").classList.add("speed" + speed);
-    document.querySelector("#syre_container").addEventListener("mousedown", clickSyreHandler);
+    this.classList.add("speed" + speed);
+    this.addEventListener("mousedown", clickSyreHandler);
 
 
 }
@@ -260,33 +233,33 @@ function syreForsvind() {
 
 function stopSpillet() {
     console.log("stopSpillet");
-    document.querySelector("#ild_container").classList = "";
-    document.querySelector("#ild_sprite").classList = "";
-    document.querySelector("#vand_container").classList = "";
-    document.querySelector("#vand_sprite").classList = "";
-    document.querySelector("#vand_container2").classList = "";
-    document.querySelector("#vand_sprite2").classList = "";
-    document.querySelector("#bombe_container").classList = "";
-    document.querySelector("#bombe_sprite").classList = "";
-    document.querySelector("#syre_container").classList = "";
+    ildcontainer.classList = "";
+    ildcontainer.firstElementChild.classList = "";
+    vandcontainer1.classList = "";
+    vandcontainer1.firstElementChild.classList = "";
+    vandcontainer2.classList = "";
+    vandcontainer2.firstElementChild.classList = "";
+    bombecontainer.classList = "";
+    bombecontainer.firstElementChild.classList = "";
+    syrecontainer.classList = "";
     document.querySelector("#syre_sprite").classList = "";
     document.querySelector("#time_board_sprite").classList = "";
     //Remove eventlistener
-    document.querySelector("#vand_container").removeEventListener("mousedown", clickVandHandler);
-    document.querySelector("#vand_container2").removeEventListener("mousedown", clickVand2Handler);
-    document.querySelector("#ild_container").removeEventListener("mousedown", clickIldHandler);
-    document.querySelector("#bombe_container").removeEventListener("mousedown", clickBombeHandler);
-    document.querySelector("#syre_container").removeEventListener("mousedown", clickSyreHandler);
+    vandcontainer.removeEventListener("mousedown", clickVandHandler);
+    vandcontainer2.removeEventListener("mousedown", clickVandHandler);
+    ildcontainer.removeEventListener("mousedown", clickIldHandler);
+    bombecontainer.removeEventListener("mousedown", clickBombeHandler);
+    syrecontainer.removeEventListener("mousedown", clickSyreHandler);
 
     //Lyt efter færdig animation
-    document.querySelector("#ild_container").removeEventListener("animationiteration", ildReset);
-    document.querySelector("#vand_container").removeEventListener("animationiteration", vandReset);
-    document.querySelector("#vand_container2").removeEventListener("animationiteration", vandReset2);
-    document.querySelector("#bombe_container").removeEventListener("animationiteration", bombeReset);
-    document.querySelector("#syre_container").removeEventListener("animationiteration", syreReset);
+    ildcontainer.removeEventListener("animationiteration", ildReset);
+    vandcontainer.removeEventListener("animationiteration", vandReset);
+    vandcontainer2.removeEventListener("animationiteration", vandReset);
+    bombecontainer.removeEventListener("animationiteration", bombeReset);
+    syrecontainer.removeEventListener("animationiteration", syreReset);
 
     //Stopper spil hvis tid slut
-    document.querySelector("#time_board_sprite").removeEventListener("animationend", stopSpillet);
+    time.removeEventListener("animationend", stopSpillet);
 
 
 
