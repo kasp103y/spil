@@ -6,7 +6,6 @@
     font-style: normal;
 }
 
-}
 
 * {
     margin: 0;
@@ -145,17 +144,20 @@ figcaption {
 #info_boks {
     background-image: url(assetsv2/inforscreen.svg);
     position: absolute;
-    top: 10vw;
-    left: 40vw;
-    width: 20vw;
-    height: 10vw;
+    top: 12vw;
+    left: 23vw;
+    width: 68.03vw;
+    height: 31.5vw;
 }
 
 #info_knap {
     background-image: url(assetsv2/play_knap.svg);
     background-size: cover;
+    position: absolute;
     width: 12vw;
     height: 6.5vw;
+    top: 22vw;
+    left: 21vw;
 }
 
 #game_over {
@@ -204,14 +206,15 @@ figcaption {
 
 #lvl_game_points {
     position: absolute;
-    width: 50vw;
+    width: 60vw;
     height: 3vw;
-    top: 46vw;
-    left: 28vw;
-    font-size: 4rem;
-    font-family: 'Roboto', sans-serif;
+    top: 38vw;
+    left: 21vw;
+    font-size: 2rem;
+    font-family: 'Press Start 2P', cursive;
     font-weight: 700;
-    color: midnightblue;
+    color: white;
+    text-shadow: 5px 5px black;
 
 }
 

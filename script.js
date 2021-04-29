@@ -15,8 +15,9 @@ const time = document.querySelector("#time_board_sprite");
 const gameover = document.querySelector("#game_over");
 const win = document.querySelector("#level_complete");
 const startKnap = document.querySelector("#start_knap_sprite");
-const infoScreen = document.querySelector("#info_screen")
-const startKnap2 = document.querySelector("#info_knap");
+const infoBoks = document.querySelector("#info_boks");
+const infoKnap = document.querySelector("#info_knap");
+
 const liv1 = document.querySelector("#liv1");
 const liv2 = document.querySelector("#liv2");
 const liv3 = document.querySelector("#liv3");
@@ -26,17 +27,17 @@ window.addEventListener("load", sidenVises);
 function sidenVises() {
     startKnap.classList.add("pulse");
     startKnap.addEventListener("click", infoScreen);
-    gameover.classList.add("none");
-    win.classList.add("none");
-    infoScreen.classList.add("none");
-
-
+    gameover.classList.add("hidden");
+    win.classList.add("hidden");
+    infoBoks.classList.add("hidden");
 }
 
 function infoScreen() {
-    infoScreen.classList.add("none");
-    startKnap2.classList.add("pulse");
-    startKnap2.addEventListener("click", startGame);
+    console.log("info");
+    infoBoks.classList.remove("hidden");
+    infoKnap.classList.add("pulse");
+    infoKnap.addEventListener("click", startGame);
+
 }
 
 function startGame() {
@@ -44,8 +45,9 @@ function startGame() {
     console.log("startGame");
     //Gemmer start skærm
     document.querySelector("#start").classList.add("hidden");
-    gameover.classList.add("none");
-    win.classList.add("none");
+    gameover.classList.add("hidden");
+    win.classList.add("hidden");
+    infoBoks.classList.add("hidden");
 
     //Reset variabler
     points = 0;
