@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'shlopregular';
+    src: url('fonte/shlop.regular-webfont.woff2') format('woff2'),
+        url('fonte/shlop.regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -110,6 +120,7 @@ figcaption {
 #start {
 
     background-image: url(assetsv2/fuldstartscreen.svg);
+    background-size: cover;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -131,23 +142,100 @@ figcaption {
     height: 6.5vw;
 }
 
+#info_boks {
+    background-image: url(assetsv2/inforscreen.svg);
+    position: absolute;
+    top: 10vw;
+    left: 40vw;
+    width: 20vw;
+    height: 10vw;
+}
+
+#info_knap {
+    background-image: url(assetsv2/play_knap.svg);
+    background-size: cover;
+    width: 12vw;
+    height: 6.5vw;
+}
+
 #game_over {
-    background-image: url(assetsv2/gameover_bag.svg);
+    background-image: url(assetsv2/gameover_uden_ui.svg);
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    display: none;
+
+}
+
+#ui_dead_redo {
+    position: absolute;
+    background-image: url(assetsv2/ui_redo_dead.svg);
+    background-size: cover;
+    width: 6vw;
+    height: 7vw;
+    top: 48vw;
+    left: 74vw;
+}
+
+#dead_game_points {
+    position: absolute;
+    width: 50vw;
+    height: 3vw;
+    top: 46vw;
+    left: 28vw;
+    font-size: 4rem;
+    font-family: 'shlopregular';
+    color: darkred;
+    text-shadow: 4px 4px black;
+    text-align: justify;
 }
 
 #level_complete {
-    background-color: blueviolet;
+    background-image: url(assetsv2/flower_saved.svg);
+    background-size: cover;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
+
+}
+
+#lvl_game_points {
+    position: absolute;
+    width: 50vw;
+    height: 3vw;
+    top: 46vw;
+    left: 28vw;
+    font-size: 4rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: midnightblue;
+
+}
+
+#ui_win_redo {
+    position: absolute;
+    background-image: url(assetsv2/ui_redo_youwin.svg);
+    background-size: cover;
+    width: 7vw;
+    height: 8vw;
+    top: 48vw;
+    left: 84vw;
+}
+
+
+#game_points {
+    position: absolute;
+    top: 22vw;
+    left: 50vw;
+    width: 10vw;
+    height: 10vw;
+    color: blue;
+}
+
+.none {
     display: none;
 }
 
@@ -180,8 +268,29 @@ figcaption {
 #sol_sprite {
     width: 30vw;
     height: 26.8vw;
-    background-image: url(assetsv2/fig_sol.svg);
-    background-size: cover;
+    background-image: url(assetsv2/sol_animation.svg);
+    background-size: 700% 100%;
+}
+
+#sol_sprite {
+    animation-name: tunge_kf;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(7);
+
+
+
+}
+
+@keyframes tunge_kf {
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: -700%;
+    }
 }
 
 #blomst_container {
@@ -193,8 +302,29 @@ figcaption {
 #blomst_sprite {
     width: 22vw;
     height: 21vw;
-    background-image: url(assetsv2/fig_start.svg);
-    background-size: cover;
+    background-image: url(assetsv2/blomst_animation.svg);
+    background-size: 600% 100%;
+}
+
+#blomst_sprite {
+    animation-name: blomst_kf;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(6);
+
+
+
+}
+
+@keyframes blomst_kf {
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: -600%;
+    }
 }
 
 /***************************************************************************************/
@@ -478,7 +608,7 @@ figcaption {
     }
 }
 
-#sol_sprite {
+#sol_container {
     animation-name: sol_hover_kf;
     animation-duration: 2s;
     animation-iteration-count: infinite;

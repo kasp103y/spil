@@ -4,8 +4,8 @@
 
 @font-face {
     font-family: 'shlopregular';
-    src: url('shlop.regular-webfont.woff2') format('woff2'),
-         url('shlop.regular-webfont.woff') format('woff');
+    src: url('fonte/shlop.regular-webfont.woff2') format('woff2'),
+        url('fonte/shlop.regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 

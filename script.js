@@ -3,23 +3,40 @@ let liv;
 let randomPos;
 let speed;
 let delay;
-const vandcontainer1 = document.querySelector("#vand_container")
-const ildcontainer = document.querySelector("#ild_container")
-const syrecontainer = document.querySelector("#syre_container")
-const bombecontainer = document.querySelector("#bombe_container")
-const vandcontainer2 = document.querySelector("#vand_container2")
-const ildcontainer2 = document.querySelector("#ild_container2")
-const syrecontainer2 = document.querySelector("#syre_container2")
-const bombecontainer2 = document.querySelector("#bombe_container2")
-const time = document.querySelector("#time_board_sprite")
+const vandcontainer1 = document.querySelector("#vand_container");
+const ildcontainer = document.querySelector("#ild_container");
+const syrecontainer = document.querySelector("#syre_container");
+const bombecontainer = document.querySelector("#bombe_container");
+const vandcontainer2 = document.querySelector("#vand_container2");
+const ildcontainer2 = document.querySelector("#ild_container2");
+const syrecontainer2 = document.querySelector("#syre_container2");
+const bombecontainer2 = document.querySelector("#bombe_container2");
+const time = document.querySelector("#time_board_sprite");
+const gameover = document.querySelector("#game_over");
+const win = document.querySelector("#level_complete");
+const startKnap = document.querySelector("#start_knap_sprite");
+const infoScreen = document.querySelector("#info_screen")
+const startKnap2 = document.querySelector("#info_knap");
+const liv1 = document.querySelector("#liv1");
+const liv2 = document.querySelector("#liv2");
+const liv3 = document.querySelector("#liv3");
 
 window.addEventListener("load", sidenVises);
 
 function sidenVises() {
-    document.querySelector("#start_knap_sprite").classList.add("pulse");
-    document.querySelector("#start_knap_sprite").addEventListener("click", startGame);
+    startKnap.classList.add("pulse");
+    startKnap.addEventListener("click", infoScreen);
+    gameover.classList.add("none");
+    win.classList.add("none");
+    infoScreen.classList.add("none");
 
 
+}
+
+function infoScreen() {
+    infoScreen.classList.add("none");
+    startKnap2.classList.add("pulse");
+    startKnap2.addEventListener("click", startGame);
 }
 
 function startGame() {
@@ -27,12 +44,18 @@ function startGame() {
     console.log("startGame");
     //Gemmer start skærm
     document.querySelector("#start").classList.add("hidden");
+    gameover.classList.add("none");
+    win.classList.add("none");
 
     //Reset variabler
     points = 0;
     document.querySelector("#score_board_sprite").innerHTML = points;
 
     liv = 3;
+    liv1.classList.remove("hide");
+    liv2.classList.remove("hide");
+    liv3.classList.remove("hide");
+
 
     speed = 0;
 
@@ -297,9 +320,23 @@ function stopSpillet() {
 }
 
 function gameOver() {
-    console.log("gameOver")
+    console.log("gameOver");
+    gameover.classList = "";
+    document.querySelector("#ui_dead_redo").classList.add("pulse");
+    document.querySelector("#ui_dead_redo").addEventListener("click", startGame);
+    document.querySelector("#ui_dead_hjem").classList.add("pulse");
+    document.querySelector("#ui_dead_hjem").addEventListener("click", sidenVises);
+    document.querySelector("#dead_game_points").textContent = "You suck, you should try again. " + points + " points"
+
+
 }
 
 function levelComplete() {
-    console.log("levelComplete")
+    console.log("levelComplete");
+    win.classList = "";
+    document.querySelector("#ui_win_redo").classList.add("pulse");
+    document.querySelector("#ui_win_redo").addEventListener("click", startGame);
+    document.querySelector("#ui_win_hjem").classList.add("pulse");
+    document.querySelector("#ui_win_hjem").addEventListener("click", sidenVises);
+    document.querySelector("#lvl_game_points").textContent = "you are the best. But you could be better. Try again. " + points + " points"
 }
