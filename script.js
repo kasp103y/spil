@@ -4,19 +4,21 @@ let randomPos;
 let speed;
 let delay;
 const vandcontainer1 = document.querySelector("#vand_container");
-const ildcontainer = document.querySelector("#ild_container");
-const syrecontainer = document.querySelector("#syre_container");
-const bombecontainer = document.querySelector("#bombe_container");
 const vandcontainer2 = document.querySelector("#vand_container2");
+const ildcontainer = document.querySelector("#ild_container");
 const ildcontainer2 = document.querySelector("#ild_container2");
+const syrecontainer = document.querySelector("#syre_container");
 const syrecontainer2 = document.querySelector("#syre_container2");
+const bombecontainer = document.querySelector("#bombe_container");
 const bombecontainer2 = document.querySelector("#bombe_container2");
+
 const time = document.querySelector("#time_board_sprite");
 const gameover = document.querySelector("#game_over");
 const win = document.querySelector("#level_complete");
 const startKnap = document.querySelector("#start_knap_sprite");
 const infoBoks = document.querySelector("#info_boks");
 const infoKnap = document.querySelector("#info_knap");
+const scoreBoard = document.querySelector("#score_board_sprite")
 
 const liv1 = document.querySelector("#liv1");
 const liv2 = document.querySelector("#liv2");
@@ -51,7 +53,7 @@ function startGame() {
 
     //Reset variabler
     points = 0;
-    document.querySelector("#score_board_sprite").innerHTML = points;
+    scoreBoard.innerHTML = points;
 
     liv = 3;
     liv1.classList.remove("hide");
@@ -88,8 +90,8 @@ function startGame() {
     //Lyt efter færdig animation
     ildcontainer.addEventListener("animationiteration", ildReset);
     ildcontainer2.addEventListener("animationiteration", ildReset);
-    vandcontainer1.addEventListener("animationiteration", vandReset);
-    vandcontainer2.addEventListener("animationiteration", vandReset);
+    vandcontainer1.addEventListener("animationiteration", vandForsvind);
+    vandcontainer2.addEventListener("animationiteration", vandForsvind);
     bombecontainer.addEventListener("animationiteration", bombeReset);
     syrecontainer.addEventListener("animationiteration", syreReset);
     bombecontainer2.addEventListener("animationiteration", bombeReset);
@@ -106,7 +108,7 @@ function clickVandHandler() {
     this.removeEventListener("mousedown", clickVandHandler);
     this.firstElementChild.classList.add("splat_vand");
     points++;
-    document.querySelector("#score_board_sprite").innerHTML = points;
+    scoreBoard.innerHTML = points;
     this.classList.add("frys");
     this.addEventListener("animationend", vandReset);
 
@@ -178,20 +180,18 @@ function ildReset() {
 
 function clickBombeHandler() {
     console.log("clickBombehandler");
-
+    this.firstElementChild.classList.add("bombe");
     this.removeEventListener("mousedown", clickBombeHandler);
-    this.firstElementChild.classList.add("skaler");
+
     console.log("liv =" + liv)
 
     document.querySelector("#liv" + liv).classList.add("hide");
 
+    this.classList.add("frys");
+    this.addEventListener("animationend", bombeReset);
     liv -= 3;
 
     console.log("liv er nu =" + liv)
-
-    this.classList.add("frys");
-    this.addEventListener("animationend", bombeReset);
-
     if (liv <= 0) {
         console.log("liv <= 0");
         stopSpillet();
@@ -204,7 +204,7 @@ function bombeReset() {
     this.firstElementChild.classList = "";
     this.removeEventListener("animationend", ildReset);
     this.offsetHeight;
-    //Ny pos til ild
+    //Ny pos til bombe
     randomPos = Math.floor(Math.random() * 8) + 1;
     console.log(randomPos);
     this.classList.add("pos" + randomPos, "fald");
@@ -221,9 +221,9 @@ function clickSyreHandler() {
     console.log("clickSyrehandler");
 
     this.removeEventListener("mousedown", clickSyreHandler);
-    this.firstElementChild.classList.add("splat_vand");
+    this.firstElementChild.classList.add("splat_syre");
     points--;
-    document.querySelector("#score_board_sprite").innerHTML = points;
+    scoreBoard.innerHTML = points;
     this.classList.add("frys");
     this.addEventListener("animationend", syreReset);
 
@@ -236,7 +236,7 @@ function syreReset() {
     this.removeEventListener("animationend", syreReset);
     this.offsetHeight;
 
-    //ny pos til vand
+    //ny pos til syre
     randomPos = Math.floor(Math.random() * 8) + 1;
     console.log(randomPos);
 
@@ -251,22 +251,42 @@ function syreReset() {
 
 }
 
-function ildForsvind() {
-    console.log("ildForsvind");
-}
-
 //mist liv på vand rammer bund
 function vandForsvind() {
     console.log("vandForsvind");
+    this.classList = "";
+    this.firstElementChild.classList = "";
+    this.removeEventListener("animationiteration", vandForsvind);
+    this.offsetHeight;
+
+    console.log("liv =" + liv)
+
+    document.querySelector("#liv" + liv).classList.add("hide");
+
+    liv--;
+
+    console.log("liv er nu =" + liv)
+
+    if (liv <= 0) {
+        console.log("liv <= 0");
+        stopSpillet();
+    }
+
+    //ny pos til vand
+    randomPos = Math.floor(Math.random() * 8) + 1;
+    console.log(randomPos);
+
+
+    this.classList.add("pos" + randomPos, "fald");
+
+    speed = Math.floor(Math.random() * 4) + 1;
+    console.log(speed);
+
+    this.classList.add("speed" + speed);
+    this.addEventListener("mousedown", clickVandHandler);
+
 }
 
-function bombeForsvind() {
-    console.log("bombeForsvind");
-}
-
-function syreForsvind() {
-    console.log("syreForsvind");
-}
 
 function stopSpillet() {
     console.log("stopSpillet");

@@ -23,7 +23,7 @@ h1 {
     text-align: center;
 }
 
-nav {
+ul {
     display: flex;
     flex-flow: wrap;
 }
@@ -32,9 +32,15 @@ li {
     margin: 0 1rem 0 1rem;
     list-style: none;
     font-family: sans-serif;
+    font-size: 2rem;
 }
 
 a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
     text-decoration: none;
     color: black;
 }
@@ -146,17 +152,17 @@ figcaption {
     position: absolute;
     top: 12vw;
     left: 23vw;
-    width: 68.03vw;
-    height: 31.5vw;
+    width: 67.73vw;
+    height: 31.2vw;
 }
 
 #info_knap {
     background-image: url(assetsv2/play_knap.svg);
     background-size: cover;
     position: absolute;
-    width: 12vw;
-    height: 6.5vw;
-    top: 22vw;
+    width: 24vw;
+    height: 13vw;
+    top: 27vw;
     left: 21vw;
 }
 
@@ -395,8 +401,8 @@ figcaption {
 #bombe_sprite {
     width: 3vw;
     height: 3vw;
-    background-image: url(assetsv2/bombe.svg);
-    background-size: cover;
+    background-image: url(assetsv2/bombe_animation.svg);
+    background-size: 400% 100%;
 }
 
 #bombe_container2 {
@@ -408,14 +414,29 @@ figcaption {
 #bombe_sprite2 {
     width: 3vw;
     height: 3vw;
-    background-image: url(assetsv2/bombe.svg);
-    background-size: cover;
+    background-image: url(assetsv2/bombe_animation.svg);
+    background-size: 400% 100%;
+
 }
+
+.bombe {
+    animation-name: bombe_kf;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(4);
+}
+
+@keyframes bombe_kf {
+
+    to {
+        background-position: -400%;
+        transform: scale(100);
+    }
+}
+
 
 #ild_container {
     position: absolute;
     top: -10vw;
-    /*left: 58vw;*/
 }
 
 
@@ -535,24 +556,6 @@ figcaption {
     left: 3vw;
 }
 
-
-/*#time_board_container {
-    position: absolute;
-    width: 3vw;
-    height: 20vw;
-    border: 5px solid pink;
-    top: 10vw;
-
-}
-
-#time_board_sprite {
-    width: 3vw;
-    height: 20vw;
-    background-color: forestgreen;
-    transform-origin: bottom center;
-
-}*/
-
 #time_board_container {
     position: absolute;
     top: 9vw;
@@ -566,11 +569,10 @@ figcaption {
 
 #time_board_sprite {
     position: absolute;
-    width: 0.1vw;
+    width: 0.2vw;
     height: 3.5vw;
     top: 2.2vw;
     left: 7.8vw;
-    border: 1px solid black;
     background-color: black;
     transform-origin: bottom;
 
@@ -667,58 +669,8 @@ figcaption {
     }
 }
 
+/****************************************Classes*****************************************************/
 
-
-
-
-/*#energy_board_sprite {
-    animation-name: health_change_kf;
-    animation-duration: 30s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: linear;
-}
-
-@keyframes health_change_kf {
-    from {
-        background-image: url(assetsv2/ui_liv_tre.svg)
-    }
-
-    25% {
-        background-image: url(assetsv2/ui_liv_tp.svg)
-    }
-
-    50% {
-        background-image: url(assetsv2/ui_liv_et.svg)
-    }
-
-    to {
-        background-image: url(assetsv2/ui_liv_nul.svg)
-    }
-
-} */
-
-
-/****************************************Projektiler*****************************************************/
-/*.time {
-    animation-name: time_kf;
-    animation-duration: 30s;
-    animation-fill-mode: forwards;
-    animation-timing-function: linear;
-}
-
-@keyframes time_kf {
-    0% {
-        transform: scaleY(1);
-        background-color: forestgreen;
-    }
-
-    100% {
-        transform: scaleY(0);
-        background-color: firebrick;
-    }
-}
-*/
 
 .time {
     animation-name: time_kf;
@@ -796,11 +748,11 @@ figcaption {
 }
 
 .speed2 {
-    animation-duration: 3s;
+    animation-duration: 4s;
 }
 
 .speed3 {
-    animation-duration: 3.3s;
+    animation-duration: 4.3s;
 }
 
 .speed4 {
@@ -812,7 +764,7 @@ figcaption {
 }
 
 .delay1 {
-    animation-delay: 1s;
+    animation-delay: 3s;
 }
 
 .delay2 {
@@ -877,16 +829,42 @@ figcaption {
 
     50% {
         background-image: url(assetsv2/vand_splat.svg);
-        width: 2vw;
-        height: 2.3vw;
+        width: 3vw;
+        height: 2.6vw;
         transform: scale(3);
 
     }
 
     100% {
         background-image: url(assetsv2/vand_splat.svg);
-        width: 2vw;
-        height: 2.3vw;
+        width: 3vw;
+        height: 2.6vw;
+        transform: scale(2) translateY(2vw);
+        opacity: 0;
+    }
+}
+
+.splat_syre {
+    animation-name: splat_syre_kf;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+
+@keyframes splat_syre_kf {
+
+    50% {
+        background-image: url(assetsv2/syre_splat.svg);
+        width: 3vw;
+        height: 2.6vw;
+        transform: scale(3);
+
+    }
+
+    100% {
+        background-image: url(assetsv2/syre_splat.svg);
+        width: 3vw;
+        height: 2.6vw;
         transform: scale(2) translateY(2vw);
         opacity: 0;
     }
@@ -906,114 +884,3 @@ figcaption {
         opacity: 0;
     }
 }
-
-/*
-#ild_container {
-    animation-name: ild_kf;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-
-
-}
-
-#ild_container2 {
-    animation-name: ild_kf;
-    animation-duration: 4.5s;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-@keyframes ild_kf {
-    from {
-        transform: translateY(-40vw)
-    }
-
-    to {
-        transform: translateY(50vw)
-    }
-}
-
-
-#vand_container {
-    animation-name: vand_kf;
-    animation-duration: 4.5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-
-
-}
-
-#vand_container2 {
-    animation-name: vand_kf;
-    animation-duration: 4s;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-
-}
-
-@keyframes vand_kf {
-    from {
-        transform: translateY(-40vw)
-    }
-
-    to {
-        transform: translateY(50vw)
-    }
-}
-
-#bombe_container {
-    animation-name: bombe_kf;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-#bombe_container2 {
-    animation-name: bombe_kf;
-    animation-duration: 3s;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-@keyframes bombe_kf {
-    from {
-        transform: translateY(-40vw)
-    }
-
-    to {
-        transform: translateY(50vw)
-    }
-}
-
-#syre_container {
-    animation-name: syre_kf;
-    animation-duration: 4.3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-
-
-}
-
-#syre_container2 {
-    animation-name: syre_kf;
-    animation-duration: 4.7s;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-
-
-}
-
-@keyframes syre_kf {
-    from {
-        transform: translateY(-40vw)
-    }
-
-    to {
-        transform: translateY(50vw)
-    }
-} */
