@@ -23,18 +23,23 @@ const scoreBoard = document.querySelector("#score_board_sprite")
 const liv1 = document.querySelector("#liv1");
 const liv2 = document.querySelector("#liv2");
 const liv3 = document.querySelector("#liv3");
+const vandLyd = document.querySelector("#vand_lyd");
+const syreLyd = document.querySelector("#syre_lyd");
+const ildLyd = document.querySelector("#ild_lyd");
+const bombeLyd = document.querySelector("#bombe_lyd");
+const baggrundMusik = document.querySelector("#baggrund_musik");
 
 window.addEventListener("load", sidenVises);
 
 function sidenVises() {
     startKnap.classList.add("pulse");
-    startKnap.addEventListener("click", infoScreen);
+    startKnap.addEventListener("click", infoVises);
     gameover.classList.add("hidden");
     win.classList.add("hidden");
     infoBoks.classList.add("hidden");
 }
 
-function infoScreen() {
+function infoVises() {
     console.log("info");
     infoBoks.classList.remove("hidden");
     infoKnap.classList.add("pulse");
@@ -45,6 +50,9 @@ function infoScreen() {
 function startGame() {
 
     console.log("startGame");
+    baggrundMusik.volume = 0.5;
+    baggrundMusik.loop = true;
+    baggrundMusik.play();
     //Gemmer start skærm
     document.querySelector("#start").classList.add("hidden");
     gameover.classList.add("hidden");
@@ -53,14 +61,12 @@ function startGame() {
 
     //Reset variabler
     points = 0;
-    scoreBoard.innerHTML = points;
+    scoreBoard.textContent = points;
 
     liv = 3;
     liv1.classList.remove("hide");
     liv2.classList.remove("hide");
     liv3.classList.remove("hide");
-
-
     speed = 0;
 
     delay = 1;
@@ -107,10 +113,15 @@ function clickVandHandler() {
 
     this.removeEventListener("mousedown", clickVandHandler);
     this.firstElementChild.classList.add("splat_vand");
+
+    vandLyd.currentTime = 0;
+    vandLyd.play();
+
     points++;
-    scoreBoard.innerHTML = points;
+    scoreBoard.textContent = points;
     this.classList.add("frys");
     this.addEventListener("animationend", vandReset);
+
 
 }
 
@@ -132,17 +143,17 @@ function vandReset() {
     console.log(speed);
     this.classList.add("speed" + speed);
     this.addEventListener("mousedown", clickVandHandler);
-
-
 }
-
 
 function clickIldHandler() {
     console.log("clickIldhandler");
 
     this.removeEventListener("mousedown", clickIldHandler);
     this.firstElementChild.classList.add("skaler");
-    console.log("liv =" + liv)
+    console.log("liv =" + liv);
+
+    ildLyd.currentTime = 0;
+    ildLyd.play();
 
     document.querySelector("#liv" + liv).classList.add("hide");
 
@@ -152,6 +163,7 @@ function clickIldHandler() {
 
     this.classList.add("frys");
     this.addEventListener("animationend", ildReset);
+
 
     if (liv <= 0) {
         console.log("liv <= 0");
@@ -180,7 +192,10 @@ function ildReset() {
 
 function clickBombeHandler() {
     console.log("clickBombehandler");
+
     this.firstElementChild.classList.add("bombe");
+    bombeLyd.currentTime = 0;
+    bombeLyd.play();
     this.removeEventListener("mousedown", clickBombeHandler);
 
     console.log("liv =" + liv)
@@ -194,7 +209,8 @@ function clickBombeHandler() {
     console.log("liv er nu =" + liv)
     if (liv <= 0) {
         console.log("liv <= 0");
-        stopSpillet();
+        this.addEventListener("animationend", stopSpillet);
+
     }
 }
 
@@ -222,10 +238,13 @@ function clickSyreHandler() {
 
     this.removeEventListener("mousedown", clickSyreHandler);
     this.firstElementChild.classList.add("splat_syre");
+    syreLyd.currentTime = 0;
+    syreLyd.play();
     points--;
     scoreBoard.innerHTML = points;
     this.classList.add("frys");
     this.addEventListener("animationend", syreReset);
+
 
 }
 
@@ -329,6 +348,7 @@ function stopSpillet() {
 
     //Stopper spil hvis tid slut
     time.removeEventListener("animationend", stopSpillet);
+    baggrundMusik.pause();
 
 
 
