@@ -241,7 +241,7 @@ function clickSyreHandler() {
     syreLyd.currentTime = 0;
     syreLyd.play();
     points--;
-    scoreBoard.innerHTML = points;
+    scoreBoard.textContent = points;
     this.classList.add("frys");
     this.addEventListener("animationend", syreReset);
 
@@ -275,21 +275,16 @@ function vandForsvind() {
     console.log("vandForsvind");
     this.classList = "";
     this.firstElementChild.classList = "";
-    this.removeEventListener("animationiteration", vandForsvind);
+    //this.removeEventListener("animationiteration", vandForsvind);
     this.offsetHeight;
 
     console.log("liv =" + liv)
 
+
     document.querySelector("#liv" + liv).classList.add("hide");
-
     liv--;
-
     console.log("liv er nu =" + liv)
 
-    if (liv <= 0) {
-        console.log("liv <= 0");
-        stopSpillet();
-    }
 
     //ny pos til vand
     randomPos = Math.floor(Math.random() * 8) + 1;
@@ -303,6 +298,12 @@ function vandForsvind() {
 
     this.classList.add("speed" + speed);
     this.addEventListener("mousedown", clickVandHandler);
+
+    if (liv <= 0) {
+        console.log("liv <= 0");
+        stopSpillet();
+    }
+
 
 }
 
