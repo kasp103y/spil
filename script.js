@@ -11,6 +11,7 @@ const syrecontainer = document.querySelector("#syre_container");
 const syrecontainer2 = document.querySelector("#syre_container2");
 const bombecontainer = document.querySelector("#bombe_container");
 const bombecontainer2 = document.querySelector("#bombe_container2");
+const soundSwitch = document.querySelector("#options_container");
 
 const time = document.querySelector("#time_board_sprite");
 const gameover = document.querySelector("#game_over");
@@ -37,6 +38,43 @@ function sidenVises() {
     gameover.classList.add("hidden");
     win.classList.add("hidden");
     infoBoks.classList.add("hidden");
+    //unmute lyd
+    soundUnmute();
+}
+
+function soundUnmute() {
+    console.log("soundUnmute");
+    soundSwitch.removeEventListener("click", soundUnmute);
+
+    //skift til "ikke muted" - billede
+    soundSwitch.classList.add("unmute");
+
+    //unmute al lyd
+    vandLyd.muted = false;
+    bombeLyd.muted = false;
+    syreLyd.muted = false;
+    ildLyd.muted = false;
+    baggrundMusik.muted = false;
+
+    soundSwitch.addEventListener("click", soundMute);
+}
+
+function soundMute() {
+    console.log("soundMute");
+    soundSwitch.removeEventListener("click", soundMute);
+
+    //skift til "ikke muted" - billede
+    soundSwitch.classList = "";
+
+    //unmute al lyd
+    vandLyd.muted = true;
+    bombeLyd.muted = true;
+    syreLyd.muted = true;
+    ildLyd.muted = true;
+    baggrundMusik.muted = true;
+
+
+    soundSwitch.addEventListener("click", soundUnmute);
 }
 
 function infoVises() {

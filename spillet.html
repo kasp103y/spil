@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="da">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAVE THY FLOWER</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="head">
+            <h1>SAVE THY FLOWER</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Hjem</a></li>
+                <li><a href="spillet.html">Spillet</a></li>
+                <li><a href="ide.html">Idé</a></li>
+                <li><a href="assets.html">Assetliste</a></li>
+                <li><a href="Dokumentation.html">Dokumentation</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <div id="screen">
+
+        <div id="game">
+
+            <div id="game_background"></div>
+
+            <div id="game_middleground">
+                <div id="sol_container">
+                    <div id="sol_sprite"></div>
+                </div>
+            </div>
+
+            <div id="game_foreground1"></div>
+            <div id="game_foreground2"></div>
+            <div id="game_elements">
+
+                <div id="blomst_container">
+                    <div id="blomst_sprite"></div>
+                </div>
+
+                <div id="vand_container">
+                    <div id="vand_sprite"></div>
+                </div>
+
+                <div id="syre_container">
+                    <div id="syre_sprite"></div>
+                </div>
+
+                <div id="bombe_container">
+                    <div id="bombe_sprite"></div>
+                </div>
+
+                <div id="ild_container">
+                    <div id="ild_sprite"></div>
+                </div>
+
+                <div id="vand_container2">
+                    <div id="vand_sprite2"></div>
+                </div>
+
+                <div id="syre_container2">
+                    <div id="syre_sprite2"></div>
+                </div>
+
+                <div id="bombe_container2">
+                    <div id="bombe_sprite2"></div>
+                </div>
+
+                <div id="ild_container2">
+                    <div id="ild_sprite2"></div>
+                </div>
+
+
+            </div>
+
+
+            <div id="game_ui">
+
+                <div id="score_board_container">
+                    <div id="score_board_sprite">
+
+                    </div>
+                </div>
+
+                <div id="energy_board_container">
+                    <div id="energy_board_sprite">
+                        <div id="liv">
+                            <div id="liv1"><img src="assetsv2/hjerte.svg" alt="">
+                            </div>
+                            <div id="liv2"><img src="assetsv2/hjerte.svg" alt="">
+                            </div>
+                            <div id="liv3"><img src="assetsv2/hjerte.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="time_board_container">
+                    <div id="time_board_sprite"></div>
+
+                </div>
+
+            </div>
+            <div id="options_container">
+                <div id="options_sprite"></div>
+
+
+            </div>
+        </div>
+
+
+        <div id="start">
+            <div id="start_knap_container">
+                <div id="start_knap_sprite"></div>
+            </div>
+        </div>
+
+        <div id="info_boks">
+            <div id="info_knap"></div>
+        </div>
+
+        <div id="game_over">
+            <div id="ui_dead_hjem"></div>
+            <div id="ui_dead_redo"></div>
+            <div id="dead_game_points"></div>
+        </div>
+
+        <div id="level_complete">
+            <div id="ui_win_hjem"></div>
+            <div id="ui_win_redo"></div>
+            <div id="lvl_game_points"></div>
+        </div>
+
+        <audio src="sounds/vand_drop_01.mp3" id="vand_lyd"></audio>
+        <audio src="sounds/ild_01.mp3" id="ild_lyd"></audio>
+        <audio src="sounds/bombe(2)_01.mp3" id="bombe_lyd"></audio>
+        <audio src="sounds/Syre_01.mp3" id="syre_lyd"></audio>
+        <audio src="sounds/fight.mp3" id="baggrund_musik"></audio>
+        <script src="script.js"></script>
+
+    </div>
+
+</body>
+
+</html>

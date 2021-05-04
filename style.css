@@ -13,7 +13,7 @@
 }
 
 body {
-    background-color: #bbefef;
+    background-color: darkseagreen;
     margin: auto;
 }
 
@@ -38,11 +38,16 @@ li {
 a {
     text-decoration: none;
     color: white;
+    border: 2px solid white;
 }
 
 a:hover {
     text-decoration: none;
     color: black;
+}
+
+header {
+    background: #bbefef;
 }
 
 
@@ -346,11 +351,12 @@ figcaption {
     position: absolute;
     top: -10vw;
     /*left: 50vw;*/
+    z-index: 1;
 }
 
 #vand_sprite {
-    width: 1.5vw;
-    height: 2vw;
+    width: 3vw;
+    height: 4vw;
     background-image: url(assetsv2/vand_drop.svg);
     background-size: cover;
 }
@@ -359,13 +365,16 @@ figcaption {
     position: absolute;
     top: -10vw;
     left: 33vw;
+    z-index: 1;
+
 }
 
 #vand_sprite2 {
-    width: 1.5vw;
-    height: 2vw;
+    width: 2.7vw;
+    height: 3.6vw;
     background-image: url(assetsv2/vand_drop.svg);
     background-size: cover;
+
 }
 
 
@@ -373,11 +382,12 @@ figcaption {
     position: absolute;
     top: -10vw;
     left: 70vw;
+    z-index: 1;
 }
 
 #syre_sprite {
-    width: 1.5vw;
-    height: 2vw;
+    width: 3vw;
+    height: 4vw;
     background-image: url(assetsv2/syre_regn.svg);
     background-size: cover;
 }
@@ -386,11 +396,12 @@ figcaption {
     position: absolute;
     top: -10vw;
     left: 20vw;
+    z-index: 1;
 }
 
 #syre_sprite2 {
-    width: 1.5vw;
-    height: 2vw;
+    width: 2.7vw;
+    height: 3.6vw;
     background-image: url(assetsv2/syre_regn.svg);
     background-size: cover;
 }
@@ -400,11 +411,12 @@ figcaption {
     position: absolute;
     top: -10vw;
     left: 37vw;
+    z-index: 1;
 }
 
 #bombe_sprite {
-    width: 3vw;
-    height: 3vw;
+    width: 6vw;
+    height: 5.6vw;
     background-image: url(assetsv2/bombe_animation.svg);
     background-size: 400% 100%;
 }
@@ -413,11 +425,12 @@ figcaption {
     position: absolute;
     top: -10vw;
     left: 50vw;
+    z-index: 1;
 }
 
 #bombe_sprite2 {
-    width: 3vw;
-    height: 3vw;
+    width: 4vw;
+    height: 3.7vw;
     background-image: url(assetsv2/bombe_animation.svg);
     background-size: 400% 100%;
 
@@ -441,12 +454,13 @@ figcaption {
 #ild_container {
     position: absolute;
     top: -10vw;
+    z-index: 1;
 }
 
 
 #ild_sprite {
-    width: 2vw;
-    height: 3vw;
+    width: 4vw;
+    height: 6vw;
     background-image: url(assetsv2/ild.svg);
     background-size: cover;
 }
@@ -455,12 +469,13 @@ figcaption {
     position: absolute;
     top: -10vw;
     left: 10vw;
+    z-index: 1;
 }
 
 
 #ild_sprite2 {
-    width: 2vw;
-    height: 3vw;
+    width: 3vw;
+    height: 4.7vw;
     background-image: url(assetsv2/ild.svg);
     background-size: cover;
 }
@@ -562,7 +577,7 @@ figcaption {
 
 #time_board_container {
     position: absolute;
-    top: 9vw;
+    top: 8vw;
     left: 1vw;
     background-image: url(assetsv2/clock.svg);
     background-size: cover;
@@ -584,23 +599,20 @@ figcaption {
 
 #options_container {
     position: absolute;
+    background-image: url(assetsv2/sound.svg);
+    background-size: 200% 100%;
+    width: 6vw;
+    height: 4.44vw;
     top: 1vw;
-    left: 1vw;
-
+    left: 3vw;
+    z-index: 1;
 }
 
-#options_sprite {
-    width: 4vw;
-    height: 4vw;
-    background-image: url(assetsv2/ui_options.svg);
-    background-size: cover;
+.unmute {
+    background-position: 100%;
 }
 
-#options_container:hover {
-    box-shadow: 0 0 10px yellow;
-}
-
-/**********************************ANIMATIONER******************************************************/
+/*******************************************ANIMATIONER******************************************************/
 
 #game_foreground2 {
     animation-name: grene_kf;
