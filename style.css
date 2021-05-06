@@ -16,11 +16,15 @@ img {
 }
 
 .bag {
-    position: absolute;
-    width: 100vw;
-    height: 56.25vw;
-    background-image: url("assetsv2/fuldstartscreen_1.svg");
+    margin-bottom: 100px;
+    background-image: url(assetsv2/fuldstartscreen_1.svg);
     background-size: cover;
+    width: 100%;
+    height: 100vh;
+    background-position: 60% 10%;
+    display: grid;
+    place-content: center;
+
     position: fixed;
     filter: blur(1em);
     z-index: -1;
@@ -37,10 +41,7 @@ main {
 }
 
 .assets {
-
-    border: 0.5em solid #732065;
-    padding: 0.125em;
-
+    margin: 0.5em 0 0 0;
 }
 
 #head {
@@ -51,18 +52,36 @@ main {
     display: block;
 }
 
+p {
+    font-family: 'Roboto';
+    font-size: 2rem;
+    color: #732065;
+}
+
+#para {
+    background-color: rgba(234, 223, 92, 0.6);
+    padding: 1em;
+
+}
+
 h4 {
-    font-family: sans-serif;
+    font-family: 'Anton', cursive;
+    font-size: 1.5rem;
     color: #732065;
     border-bottom: 0.250em solid #732065;
-    margin: 0.5em;
+    margin: 1rem;
 
 }
 
 h2 {
-    font-family: sans-serif;
+    font-family: 'Anton', cursive;
     color: #732065;
 
+}
+
+h1 {
+    font-family: 'Anton', cursive;
+    color: #732065;
 }
 
 
@@ -76,8 +95,10 @@ li {
 a {
     text-decoration: none;
     color: white;
-    font-family: sans-serif;
-    font-size: 2rem;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    border: 2px solid white;
+    padding: 4px;
 
 
 
@@ -85,8 +106,9 @@ a {
 
 a:hover {
     transition: 100ms;
+    background-color: white;
+    color: #732065;
 
-    text-decoration: underline;
 }
 
 
@@ -95,7 +117,7 @@ header {
     top: 0;
     background-color: #732065;
     padding: 1rem 0;
-
+    box-shadow: 0 0 2em #732065
 }
 
 header nav ul {
@@ -113,7 +135,11 @@ header nav ul {
 #ui_section,
 #objekt_section,
 #keyframes_section,
-#baggrund_section {
+#baggrund_section,
+#sound_section,
+
+#sketch,
+#ide {
     max-width: 1200px;
     margin: auto;
 }
@@ -122,14 +148,33 @@ header nav ul {
     padding: 2em 0 2em 0;
 }
 
-@media (min-width: 1000px) {
+#sound_section .section_wrapper {
+
+    padding: 0.125em;
+    margin-bottom: 1em;
+}
+
+@media (min-width: 1200px) {
 
     #karakter_section .section_wrapper,
     #ui_section .section_wrapper,
-    #objekt_section .section_wrapper {
+    #objekt_section .section_wrapper,
+    #sketch .section_wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 1em;
+
+    }
+
+    .bag {
+        position: absolute;
+        width: 100vw;
+        height: 56.25vw;
+        background-image: url("assetsv2/fuldstartscreen_1.svg");
+        background-size: cover;
+        position: fixed;
+        filter: blur(1em);
+        z-index: -1;
 
     }
 

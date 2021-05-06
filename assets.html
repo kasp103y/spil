@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>assetliste</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Press+Start+2P&family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -24,10 +26,11 @@
             </ul>
         </nav>
     </header>
-    <section class="bag"></section>
+    <div class="bag"></div>
     <main>
-
+        <h1>Assetliste</h1>
         <section class="border">
+
             <section id="karakter_section">
                 <h2>Karaktere</h2>
                 <article class="section_wrapper">
@@ -239,11 +242,27 @@
             <section id="sound_section">
                 <h2>Lyde</h2>
                 <article class="section_wrapper">
-                    <audio src="sounds/vand_drop_01.mp3" id="vand_lyd" controls></audio>
-                    <audio src="sounds/ild_01.mp3" id="ild_lyd" controls></audio>
-                    <audio src="sounds/bombe(2)_01.mp3" id="bombe_lyd" controls></audio>
-                    <audio src="sounds/Syre_01.mp3" id="syre_lyd" controls></audio>
-                    <audio src="sounds/fight.mp3" id="baggrund_musik" controls></audio>
+                    <article class="sound_asset">
+                        <h4>Vand lyd</h4>
+                        <audio src="sounds/vand_drop_01.mp3" id="vand_lyd" controls></audio>
+                    </article>
+                    <article class="sound_asset">
+                        <h4>Ild lyd</h4>
+
+                        <audio src="sounds/ild_01.mp3" id="ild_lyd" controls></audio>
+                    </article>
+                    <article class="sound_asset">
+                        <h4>Bombe lyd</h4>
+                        <audio src="sounds/bombe(2)_01.mp3" id="bombe_lyd" controls></audio>
+                    </article>
+                    <article class="sound_asset">
+                        <h4>Syre lyd</h4>
+                        <audio src="sounds/Syre_01.mp3" id="syre_lyd" controls></audio>
+                    </article>
+                    <article class="sound_asset">
+                        <h4>Musik</h4>
+                        <audio src="sounds/fight.mp3" id="baggrund_musik" controls></audio>
+                    </article>
                 </article>
             </section>
         </section>
@@ -252,7 +271,10 @@
     </main>
 
 
-    <footer></footer>
+    <footer>
+        <h2>SAVE THY FLOWER</h2>
+        <h2>Kasper Nikolajsen Dahl</h2>
+    </footer>
 </body>
 
 </html>
