@@ -7,10 +7,6 @@
 }
 
 
-* {
-    margin: 0;
-    padding: 0;
-}
 
 img {
     display: block;
@@ -19,40 +15,54 @@ img {
     object-fit: cover;
 }
 
-body {
-    background: aquamarine;
-}
+.bag {
+    position: absolute;
+    width: 100vw;
+    height: 56.25vw;
+    background-image: url("assetsv2/fuldstartscreen_1.svg");
+    background-size: cover;
+    position: fixed;
+    filter: blur(1em);
+    z-index: -1;
 
+}
 
 main {
     margin: auto;
+    padding: 10px;
 }
 
-figure {
-    display: flex;
-    flex-direction: column-reverse;
-    background-color: whitesmoke;
-    padding: 1em;
+.border {
+    border: 0.5em solid #732065;
+}
+
+.assets {
+
+    border: 0.5em solid #732065;
+    padding: 0.125em;
 
 }
 
+#head {
+    width: 20%;
+    height: 20%;
+    margin: auto;
+    margin-bottom: 0.6rem;
+    display: block;
+}
 
-figcaption {
-    display: table-caption;
-    caption-side: top;
+h4 {
     font-family: sans-serif;
-    color: black;
-    font-size: 2rem;
-    border-bottom: 0.125em solid black;
-
+    color: #732065;
+    border-bottom: 0.250em solid #732065;
     margin: 0.5em;
 
 }
 
-h1 {
+h2 {
     font-family: sans-serif;
-    color: white;
-    text-align: center;
+    color: #732065;
+
 }
 
 
@@ -83,16 +93,14 @@ a:hover {
 header {
     position: sticky;
     top: 0;
-    background-color: #4e99f2;
+    background-color: #732065;
     padding: 1rem 0;
-    border-bottom: 4px solid white;
 
 }
 
 header nav ul {
     display: flex;
     justify-content: space-between;
-    background-color: #4e99f2;
     overflow-x: auto;
     overflow-y: hidden;
     gap: 10px;
