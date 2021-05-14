@@ -24,7 +24,7 @@ img {
     place-content: center;
 
     position: fixed;
-    filter: blur(1em);
+    filter: blur(2em);
     z-index: -1;
 
 }
@@ -56,7 +56,7 @@ p {
     color: #732065;
 }
 
-#para {
+.para {
     background-color: rgba(108, 211, 98, 0.67);
     padding: 1em;
 
@@ -96,12 +96,27 @@ li {
 
 }
 
-a {
+.knap a {
     text-decoration: none;
-    color: white;
+    color: #732065;
     font-family: 'Press Start 2P', cursive;
     font-size: 1.5rem;
-    border: 2px solid white;
+    border: 2px solid #732065;
+    padding: 4px;
+}
+
+.knap a:hover {
+    transition: 100ms;
+    background-color: #732065;
+    color: #F2DA63;
+}
+
+a {
+    text-decoration: none;
+    color: #F2DA63;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    border: 2px solid #F2DA63;
     padding: 4px;
 
 
@@ -110,7 +125,7 @@ a {
 
 a:hover {
     transition: 100ms;
-    background-color: white;
+    background-color: #F2DA63;
     color: #732065;
 
 }
@@ -190,10 +205,13 @@ header nav ul {
 #sketch,
 #ide,
 #farve_section,
-#heading_section {
+#heading_section,
+#hjem_section {
     max-width: 1200px;
     margin: auto;
 }
+
+
 
 .section_wrapper {
     padding: 2em 0 2em 0;
@@ -229,15 +247,11 @@ header nav ul {
 
     }
 
-    .hjem_wrapper {
-        display: grid;
-
-    }
-
     .hjem {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-auto-rows: 1fr;
+        gap: 1em;
     }
 
     .bag {
